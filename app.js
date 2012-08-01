@@ -35,29 +35,42 @@ app.get('/', function(req, res) {
   });
 });
 
-// Handle the small file.
-app.get('/small', function(req, res) {
+app.get('/25', function(req, res) {
   var start = new Date().getTime();
-  var score = calculateScore(__dirname + '/names.txt');
+  var PHI = (1 + Math.sqrt(5)) / 2;
+  var answer = Math.ceil(((Math.log(10) * 999) + Math.log(5) / 2) / Math.log(PHI));
   var end = new Date().getTime();
   
-  res.render('score', {
+  res.render('solution', {
+    title: 'Project Euler - Problem 25'
+  , time: end - start
+  , answer: answer
+  });
+});
+
+// Handle the small file.
+app.get('/22', function(req, res) {
+  var start = new Date().getTime();
+  var answer = calculateScore(__dirname + '/names.txt');
+  var end = new Date().getTime();
+  
+  res.render('solution', {
       title: 'Project Euler - Problem 22'
     , time: end - start
-    , score: score
+    , answer: answer
   });
 });
 
 // Handle the big file
-app.get('/big', function(req, res) {
+app.get('/22/big', function(req, res) {
   var start = new Date().getTime();
-  var score = calculateScore(__dirname + '/names-big.txt');
+  var answer = calculateScore(__dirname + '/names-big.txt');
   var end = new Date().getTime();
   
-  res.render('score', {
+  res.render('solution', {
       title: 'Project Euler - Problem 22'
     , time: end - start
-    , score: score
+    , answer: answer
   });
 });
 
