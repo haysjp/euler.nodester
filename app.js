@@ -38,7 +38,7 @@ app.get('/', function(req, res) {
 // Handle the small file.
 app.get('/small', function(req, res) {
   var start = new Date().getTime();
-  var score = calculateScore('names.txt');
+  var score = calculateScore('http://euler.nodester.com/names.txt');
   var end = new Date().getTime();
   
   res.render('score', {
@@ -51,7 +51,7 @@ app.get('/small', function(req, res) {
 // Handle the big file
 app.get('/big', function(req, res) {
   var start = new Date().getTime();
-  var score = calculateScore('names-big.txt');
+  var score = calculateScore('http://euler.nodester.com/names-big.txt');
   var end = new Date().getTime();
   
   res.render('score', {
