@@ -78,10 +78,11 @@ function calculateScore (fileName) {
   var score = 0
     , names = []
     , cleanIndex = 0
-    , alpha = 'abcdefghijklmnopqrstuvwxyz';
+    , alpha = 'abcdefghijklmnopqrstuvwxyz'
+    , nameData;
 
   try {
-    var nameData = fs.readFileSync(fileName, 'ascii').split(',');
+    nameData = fs.readFileSync(fileName, 'ascii').split(',');
   } catch (err) {
     
     console.error('Unable to read file :(');
@@ -94,7 +95,7 @@ function calculateScore (fileName) {
     for (i = 0; i < name.length; i++) {
       // The score for the current name.
       thisScore += alpha.indexOf(name[i].toLowerCase()) + 1;
-    };
+    }
     
     // Add the index multiplier.
     score += thisScore * (index + 1);
