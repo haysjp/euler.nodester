@@ -36,6 +36,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/25', function(req, res) {
+  // Fibonacci magic!
   var start = new Date().getTime();
   var PHI = (1 + Math.sqrt(5)) / 2;
   var answer = Math.ceil(((Math.log(10) * 999) + Math.log(5) / 2) / Math.log(PHI));
