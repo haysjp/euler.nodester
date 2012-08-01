@@ -64,21 +64,6 @@ app.get('/22', function(req, res) {
   });
 });
 
-// Handle the big file
-app.get('/22/big', function(req, res) {
-  var start = new Date().getTime();
-  var answer = calculateScore(__dirname + '/names-big.txt');
-  var end = new Date().getTime();
-  
-  res.render('solution', {
-      title: 'Project Euler - Problem 22'
-    , link: 'http://projecteuler.net/problem=25'
-    , time: end - start
-    , answer: answer
-  });
-});
-
-
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
