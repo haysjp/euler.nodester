@@ -44,6 +44,7 @@ app.get('/25', function(req, res) {
   
   res.render('solution', {
     title: 'Project Euler - Problem 25'
+  , link: 'http://projecteuler.net/problem=25'
   , time: end - start
   , answer: answer
   });
@@ -57,6 +58,7 @@ app.get('/22', function(req, res) {
   
   res.render('solution', {
       title: 'Project Euler - Problem 22'
+    , link: 'http://projecteuler.net/problem=22'
     , time: end - start
     , answer: answer
   });
@@ -70,6 +72,7 @@ app.get('/22/big', function(req, res) {
   
   res.render('solution', {
       title: 'Project Euler - Problem 22'
+    , link: 'http://projecteuler.net/problem=25'
     , time: end - start
     , answer: answer
   });

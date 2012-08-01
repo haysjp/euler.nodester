@@ -1,7 +1,9 @@
 extends layout
 
 block content
-  h1= title
+  h1#title= title
   p Answer: #{answer}
+  p Total time: #{time}ms
   p
-    small Total time: #{time}ms
+    small 
+      a(href='#{link}', target='_blank') link to problem
