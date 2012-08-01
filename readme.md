@@ -1,4 +1,4 @@
-This is the solution to [problem 22](http://projecteuler.net/problem=22) on [Project Euler](http://projecteuler.net) using JavaScript.
+This is the solution to [Project Euler](http://projecteuler.net) problems using JavaScript.
 
 Run locally:
 
