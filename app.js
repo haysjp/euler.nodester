@@ -51,7 +51,7 @@ app.get('/small', function(req, res) {
 // Handle the big file
 app.get('/big', function(req, res) {
   var start = new Date().getTime();
-  var score = calculateScore(__dirname + 'names-big.txt');
+  var score = calculateScore(__dirname + '/names-big.txt');
   var end = new Date().getTime();
   
   res.render('score', {
