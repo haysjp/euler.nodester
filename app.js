@@ -13,7 +13,7 @@ var app = express();
  * Server configuration.
  */
 app.configure(function(){
-  app.set('port', process.env.PORT || 3000);
+  app.set('port', process.env.PORT || 20109);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(express.favicon());
@@ -28,20 +28,39 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-// Handle the request to base.
+// Handle index - link to the files.
 app.get('/', function(req, res) {
-  
-  // Magic!
+  res.render('index', {
+      title: 'Project Euler solutions using JavaScript'
+  });
+});
+
+// Handle the small file.
+app.get('/small', function(req, res) {
   var start = new Date().getTime();
   var score = calculateScore('names.txt');
   var end = new Date().getTime();
   
-  res.render('index', {
+  res.render('score', {
       title: 'Project Euler - Problem 22'
     , time: end - start
     , score: score
   });
 });
+
+// Handle the big file
+app.get('/big', function(req, res) {
+  var start = new Date().getTime();
+  var score = calculateScore('names-big.txt');
+  var end = new Date().getTime();
+  
+  res.render('score', {
+      title: 'Project Euler - Problem 22'
+    , time: end - start
+    , score: score
+  });
+});
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
@@ -62,14 +81,15 @@ function calculateScore (fileName) {
   try {
     var nameData = fs.readFileSync(fileName, 'ascii').split(',');
   } catch (err) {
+    
     console.error('Unable to read file :(');
     console.log(err);
   }
   
   // Sort then calculate the score.
   nameData.sort().forEach(function(name, index) {
-    thisScore = 0;
-    for (var i=0; i < name.length; i++) {
+    var thisScore = 0, i;
+    for (i = 0; i < name.length; i++) {
       // The score for the current name.
       thisScore += alpha.indexOf(name[i].toLowerCase()) + 1;
     };
