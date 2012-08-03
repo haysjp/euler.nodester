@@ -7,6 +7,7 @@ var fs = require('fs');
  * GET home page.
  */
 exports.index = function(req, res){
+  problem2();
   res.render('index', {
       title: 'Euler : JavaScript'
   });
@@ -34,6 +35,38 @@ exports.problem1 = function(req, res) {
    , time: result.time
    , answer: result.answer
  });
+}
+
+/**
+ * GET solution for problem 2
+ */
+exports.problem2 = function(req, res) {
+  var result = timedFunction(function() {
+    var first  = 0
+    , second = 1
+    , count  = 2
+    , answer = 0
+    , next   = 0;
+    
+    while(next < 4000000) {
+      next = first + second;
+      first = second;
+      second = next;
+      
+      if ((next % 2) === 0) {
+        answer += next;
+      }
+    }
+    
+    return answer;
+  });
+  
+  res.render('solution', {
+      title: 'Problem 2'
+    , link: 'http://projecteuler.net/problem=2'
+    , time: result.time
+    , answer: result.answer
+  });
 }
 
 /**
