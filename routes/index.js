@@ -8,7 +8,7 @@ var fs = require('fs');
  */
 exports.index = function(req, res){
   res.render('index', {
-      title: 'Project Euler solutions using JavaScript'
+      title: 'Project Euler : JavaScript'
   });
 }
 
@@ -29,7 +29,7 @@ exports.problem1 = function(req, res) {
  });
  
  res.render('solution', {
-     title: 'Project Euler - Problem 1'
+     title: 'Project Euler : Problem 1'
    , link: 'http://projecteuler.net/problem=1'
    , time: result.time
    , answer: result.answer
@@ -45,7 +45,7 @@ exports.problem1 = function(req, res) {
    });
    
    res.render('solution', {
-       title: 'Project Euler - Problem 22'
+       title: 'Project Euler : Problem 22'
      , link: 'http://projecteuler.net/problem=22'
      , time: result.time
      , answer: result.answer
@@ -63,7 +63,7 @@ exports.problem25 = function(req, res) {
   });
 
   res.render('solution', {
-    title: 'Project Euler - Problem 25'
+    title: 'Project Euler : Problem 25'
   , link: 'http://projecteuler.net/problem=25'
   , time: result.time
   , answer: result.answer
@@ -148,7 +148,7 @@ function timedFunction (fn) {
  */
 function openAndSplit(fileName, pattern) {
   try {
-    return fs.readFileSync(__dirname + fileName, 'ascii').split(pattern);
+    return fs.readFileSync(__dirname + '/files' + fileName, 'ascii').split(pattern);
   } catch (err) {
     console.error('Unable to read file :(');
     console.log(err);

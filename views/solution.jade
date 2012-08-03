@@ -1,9 +1,12 @@
 extends layout
 
 block content
-  h1#title= title
-  p Answer: #{answer}
-  p Total time: #{time}ms
-  p
-    small 
-      a(href='#{link}', target='_blank') link to problem
+  div.thirteen.columns.content(role='main')
+    h1#title= title
+    hr
+    p Answer: #{answer}
+    p Total time: #{time}ms
+    p
+      small 
+        a(href='#{link}', target='_blank') link to problem
+    include includes/footer

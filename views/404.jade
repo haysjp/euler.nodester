@@ -1,5 +1,8 @@
 extends layout
 
 block content
-  h1#title= title
-  p Sorry, but the page you were trying to view does not exist.
+  div.thirteen.columns.content(role='main')
+    h1#title= title
+    hr
+    p Sorry, but the page you were trying to view does not exist.
+    include includes/footer
