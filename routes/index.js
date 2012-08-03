@@ -17,7 +17,7 @@ exports.index = function(req, res){
  */
  exports.problem22 = function(req, res) {
    var result = timedFunction(function() {
-     return calculateScore(__dirname + '/names.txt');
+     return calculateScore('/names.txt');
    });
    
    res.render('solution', {
@@ -126,7 +126,7 @@ function timedFunction (fn) {
  * @returns {Number} The are of the triangle.
  */
 function calculateTriangleArea(a, b, c) {
-  return Math.abs(.5 * ((a.x - c.x) * (b.y - a.y) - (a.x - b.x) * (c.y - a.y)));
+  return Math.abs(0.5 * ((a.x - c.x) * (b.y - a.y) - (a.x - b.x) * (c.y - a.y)));
 }
 
 /**
@@ -152,14 +152,7 @@ function calculateScore (fileName) {
     , names = []
     , cleanIndex = 0
     , alpha = 'abcdefghijklmnopqrstuvwxyz'
-    , nameData;
-
-  try {
-    nameData = fs.readFileSync(fileName, 'ascii').split(',');
-  } catch (err) {
-    console.error('Unable to read file :(');
-    console.log(err);
-  }
+    , nameData = openAndSplit(fileName, ',');
 
   // Sort then calculate the score.
   nameData.sort().forEach(function(name, index) {
