@@ -7,7 +7,6 @@ var fs = require('fs');
  * GET home page.
  */
 exports.index = function(req, res){
-  problem2();
   res.render('index', {
       title: 'Euler : JavaScript'
   });
