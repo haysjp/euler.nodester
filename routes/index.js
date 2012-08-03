@@ -8,7 +8,7 @@ var fs = require('fs');
  */
 exports.index = function(req, res){
   res.render('index', {
-      title: 'JavaScript'
+      title: 'Euler : JavaScript'
   });
 }
 
