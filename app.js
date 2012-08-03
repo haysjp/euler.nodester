@@ -30,6 +30,7 @@ app.configure('development', function(){
  * Requests
  */
 app.get('/',   routes.index);
+app.get('/1', routes.problem1);
 app.get('/22', routes.problem22);
 app.get('/25', routes.problem25);
 app.get('/102', routes.problem102);

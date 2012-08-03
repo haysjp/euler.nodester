@@ -13,6 +13,30 @@ exports.index = function(req, res){
 }
 
 /**
+ * GET solution for problem 1
+ */
+exports.problem1 = function(req, res) {
+ var result = timedFunction(function() {
+   var answer = 0, i;
+   
+   for (i = 0; i < 1000; i++) {
+     if (i % 3 === 0 || i % 5 === 0) {
+       answer += i;
+     }
+   }
+   
+   return answer;
+ });
+ 
+ res.render('solution', {
+     title: 'Project Euler - Problem 1'
+   , link: 'http://projecteuler.net/problem=1'
+   , time: result.time
+   , answer: result.answer
+ });
+}
+
+/**
  * GET solution for problem 22
  */
  exports.problem22 = function(req, res) {
