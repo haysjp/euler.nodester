@@ -118,18 +118,6 @@ function timedFunction (fn) {
 }
 
 /**
- * Calculate the area of a triangle based on the three line segments
- *  that make up the triangle.
- * @param {Object} a First line segment.
- * @param {Object} b Second line segment.
- * @param {Object} c Third line segment.
- * @returns {Number} The are of the triangle.
- */
-function calculateTriangleArea(a, b, c) {
-  return Math.abs(0.5 * ((a.x - c.x) * (b.y - a.y) - (a.x - b.x) * (c.y - a.y)));
-}
-
-/**
  * Opens the specified file and splits the contents based on the
  *  specified pattern.
  * @returns {Array} The split contents of the file.
@@ -142,6 +130,19 @@ function openAndSplit(fileName, pattern) {
     console.log(err);
   }
 }
+
+/**
+ * Calculate the area of a triangle based on the three line segments
+ *  that make up the triangle.
+ * @param {Object} a First line segment.
+ * @param {Object} b Second line segment.
+ * @param {Object} c Third line segment.
+ * @returns {Number} The are of the triangle.
+ */
+function calculateTriangleArea(a, b, c) {
+  return Math.abs(0.5 * ((a.x - c.x) * (b.y - a.y) - (a.x - b.x) * (c.y - a.y)));
+}
+
 /**
  * Calculate the score for the names in the specified file.
  * @param {String} fileName The file with the names.
