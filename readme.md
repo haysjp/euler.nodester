@@ -1,6 +1,11 @@
-Solutions to [Project Euler](http://projecteuler.net) problems using JavaScript. This is a work in progress.
+#Project Euler JavaScript solutions
+This is a collection of solutions to [Project Euler](http://projecteuler.net) problems using JavaScript. This is a work in progress.
 
-Run locally:
+##Pull Requests
+Feel free to submit pull requests with solutions!
+
+##Run locally
+Requires Express and Jade
 
 ```
 $ git clone git://github.com/Fiveisprime/euler.nodester.git
