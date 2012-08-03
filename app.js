@@ -30,10 +30,11 @@ app.configure('development', function(){
 /**
  * Requests
  */
-app.get('/', routes.index);
+app.get('/',   routes.index);
 app.get('/22', routes.problem22);
 app.get('/25', routes.problem25);
-app.get('*', routes.notfound); // 404
+app.get('/102', routes.problem102);
+app.get('*',   routes.notfound); // 404
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
