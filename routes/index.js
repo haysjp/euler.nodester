@@ -42,12 +42,12 @@ exports.problem1 = function(req, res) {
 exports.problem2 = function(req, res) {
   var result = timedFunction(function() {
     var first  = 0
-    , second = 1
-    , count  = 2
-    , answer = 0
-    , next   = 0;
+      , second = 1
+      , count  = 2
+      , next   = 3
+      , answer = 0;
     
-    while(next < 4000000) {
+    while (next < 4000000) {
       next = first + second;
       first = second;
       second = next;
