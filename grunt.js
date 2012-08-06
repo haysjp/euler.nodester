@@ -1,7 +1,8 @@
 /*global module:false*/
 module.exports = function(grunt) {
+
+  // Project configuration.
   grunt.initConfig({
-    pkg: '<json:package.json>',
     lint: {
       files: ['grunt.js', 'app.js', 'routes/index.js']
     },
@@ -30,6 +31,8 @@ module.exports = function(grunt) {
       }
     }
   });
-  
+
+  // Default task.
   grunt.registerTask('default', 'lint');
+
 };

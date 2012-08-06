@@ -7,12 +7,10 @@ Feel free to submit pull requests with solutions!
 ##Run locally
 Requires Express and Jade
 
-```
-$ git clone git://github.com/Fiveisprime/euler.nodester.git
-$ cd euler.nodester
-$ npm install express
-$ npm install jade
-$ node app.js
-```
+    $ git clone git://github.com/Fiveisprime/euler.nodester.git
+    $ cd euler.nodester
+    $ npm install express
+    $ npm install jade
+    $ node app.js
 
 Once the app is running, navigate to http://localhost:20109 to see the result.

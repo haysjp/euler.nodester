@@ -1,0 +1,163 @@
+<!DOCTYPE html><html><head><title>index.js</title><meta http-equiv="Content-Type" content="text/html" charset="UTF-8"><link rel="stylesheet" media="all" href="../docco.css"></head><body><div id="container"><div id="background"></div><div id="jump_to">Jump To &hellip;<div id="jump_wrapper"><div id="jump_page"><a href="../index.html" class="source"><span class="file_name">README</span></a><a href="../app.js.html" class="source "><span class="base_path">. / </span><span class="file_name">app.js</span></a><a href="../routes/index.js.html" class="source selected"><span class="base_path">routes / </span><span class="file_name">index.js</span></a></div></div></div><table cellpadding="0" cellspacing="0"><thead><tr><th class="docs"><h1>index.js</h1><div class="filepath">routes/</div></th><th class="code"></th></tr></thead><tbody><tr id="section-1"><td class="docs"><div class="pilwrap"><a href="#section-1" class="pilcrow">&#182;</a></div><div class="dox"><div class="summary"><p>Node module dependencies.</p></div><div class="body"></div></div>
+</td><td class="code"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span></pre></div></td></tr><tr id="section-2"><td class="docs"><div class="pilwrap"><a href="#section-2" class="pilcrow">&#182;</a></div><div class="dox"><div class="summary"><h2>Helper functions</h2></div><div class="body"></div></div>
+</td><td class="code"><div class="highlight"><pre></pre></div></td></tr><tr id="section-3"><td class="docs"><div class="pilwrap"><a href="#section-3" class="pilcrow">&#182;</a></div><div class="dox"><div class="summary"><p>Runs the specified function and returns a result object that includes the<br />  time it too to run the function.</p></div><div class="details"><div class="dox_tag_title">Params</div><div class="dox_tag_detail"><span>fn </span><span class="dox_type">Function</span><span>- The function to time.</span></div></div><div class="body"></div></div>
+</td><td class="code"><div class="highlight"><pre><span class="kd">function</span> <span class="nx">timedFunction</span> <span class="p">(</span><span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">fn</span> <span class="o">!==</span> <span class="s1">&#39;function&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;You must specify a valid function&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">var</span> <span class="nx">start</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getTime</span><span class="p">();</span>
+  <span class="kd">var</span> <span class="nx">answer</span> <span class="o">=</span> <span class="nx">fn</span><span class="p">();</span>
+  <span class="kd">var</span> <span class="nx">end</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getTime</span><span class="p">();</span>
+
+  <span class="k">return</span> <span class="p">{</span> <span class="nx">answer</span><span class="o">:</span> <span class="nx">answer</span><span class="p">,</span> <span class="nx">time</span><span class="o">:</span> <span class="nx">end</span> <span class="o">-</span> <span class="nx">start</span> <span class="p">};</span>
+<span class="p">}</span></pre></div></td></tr><tr id="section-4"><td class="docs"><div class="pilwrap"><a href="#section-4" class="pilcrow">&#182;</a></div><div class="dox"><div class="summary"><p>Opens the specified file and splits the contents based on the<br /> specified pattern.</p></div><div class="details"></div><div class="body"></div></div>
+</td><td class="code"><div class="highlight"><pre><span class="kd">function</span> <span class="nx">openAndSplit</span><span class="p">(</span><span class="nx">fileName</span><span class="p">,</span> <span class="nx">pattern</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">&#39;/files&#39;</span> <span class="o">+</span> <span class="nx">fileName</span><span class="p">,</span> <span class="s1">&#39;ascii&#39;</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="nx">pattern</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Unable to read file :(&#39;</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></pre></div></td></tr><tr id="section-5"><td class="docs"><div class="pilwrap"><a href="#section-5" class="pilcrow">&#182;</a></div><div class="dox"><div class="summary"><p>Calculate the area of a triangle based on the three line segments<br /> that make up the triangle.</p></div><div class="details"><div class="dox_tag_title">Params</div><div class="dox_tag_detail"><span>a </span><span class="dox_type">Object</span><span>- First line segment.</span></div><div class="dox_tag_detail"><span>b </span><span class="dox_type">Object</span><span>- Second line segment.</span></div><div class="dox_tag_detail"><span>c </span><span class="dox_type">Object</span><span>- Third line segment.</span></div></div><div class="body"></div></div>
+</td><td class="code"><div class="highlight"><pre><span class="kd">function</span> <span class="nx">calculateTriangleArea</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">((</span><span class="nx">a</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">c</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">a</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">b</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">a</span><span class="p">.</span><span class="nx">y</span><span class="p">)));</span>
+<span class="p">}</span></pre></div></td></tr><tr id="section-6"><td class="docs"><div class="pilwrap"><a href="#section-6" class="pilcrow">&#182;</a></div><div class="dox"><div class="summary"><p>Calculate the score for the names in the specified file.</p></div><div class="details"><div class="dox_tag_title">Params</div><div class="dox_tag_detail"><span>fileName </span><span class="dox_type">String</span><span>- The file with the names.</span></div></div><div class="body"></div></div>
+</td><td class="code"><div class="highlight"><pre><span class="kd">function</span> <span class="nx">calculateScore</span> <span class="p">(</span><span class="nx">fileName</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">score</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">,</span> <span class="nx">names</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="p">,</span> <span class="nx">cleanIndex</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">,</span> <span class="nx">alpha</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span>
+    <span class="p">,</span> <span class="nx">nameData</span> <span class="o">=</span> <span class="nx">openAndSplit</span><span class="p">(</span><span class="nx">fileName</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">);</span></pre></div></td></tr><tr id="section-7"><td class="docs"><div class="pilwrap"><a href="#section-7" class="pilcrow">&#182;</a></div><p>Sort then calculate the score.</p>
+</td><td class="code"><div class="highlight"><pre>  <span class="nx">nameData</span><span class="p">.</span><span class="nx">sort</span><span class="p">().</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">thisScore</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">i</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">name</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span></pre></div></td></tr><tr id="section-8"><td class="docs"><div class="pilwrap"><a href="#section-8" class="pilcrow">&#182;</a></div><p>The score for the current name.</p>
+</td><td class="code"><div class="highlight"><pre>      <span class="nx">thisScore</span> <span class="o">+=</span> <span class="nx">alpha</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">name</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span></pre></div></td></tr><tr id="section-9"><td class="docs"><div class="pilwrap"><a href="#section-9" class="pilcrow">&#182;</a></div><p>Add the index multiplier.</p>
+</td><td class="code"><div class="highlight"><pre>    <span class="nx">score</span> <span class="o">+=</span> <span class="nx">thisScore</span> <span class="o">*</span> <span class="p">(</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="k">return</span> <span class="nx">score</span><span class="p">;</span>
+<span class="p">}</span></pre></div></td></tr><tr id="section-10"><td class="docs"><div class="pilwrap"><a href="#section-10" class="pilcrow">&#182;</a></div><div class="dox"><div class="summary"><h2>Constructors</h2></div><div class="body"></div></div>
+</td><td class="code"><div class="highlight"><pre></pre></div></td></tr><tr id="section-11"><td class="docs"><div class="pilwrap"><a href="#section-11" class="pilcrow">&#182;</a></div><div class="dox"><div class="summary"><h2>Routing</h2></div><div class="body"></div></div>
+</td><td class="code"><div class="highlight"><pre></pre></div></td></tr><tr id="section-12"><td class="docs"><div class="pilwrap"><a href="#section-12" class="pilcrow">&#182;</a></div><div class="dox"><div class="summary"><p>GET home page.</p></div><div class="body"></div></div>
+</td><td class="code"><div class="highlight"><pre><span class="nx">exports</span><span class="p">.</span><span class="nx">index</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">){</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Euler : JavaScript&#39;</span>
+  <span class="p">});</span>
+<span class="p">};</span></pre></div></td></tr><tr id="section-13"><td class="docs"><div class="pilwrap"><a href="#section-13" class="pilcrow">&#182;</a></div><div class="dox"><div class="summary"><p>GET solution for problem 1</p></div><div class="body"></div></div>
+</td><td class="code"><div class="highlight"><pre><span class="nx">exports</span><span class="p">.</span><span class="nx">problem1</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+ <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">timedFunction</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+   <span class="kd">var</span> <span class="nx">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">i</span><span class="p">;</span>
+   
+   <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+     <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">i</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+       <span class="nx">answer</span> <span class="o">+=</span> <span class="nx">i</span><span class="p">;</span>
+     <span class="p">}</span>
+   <span class="p">}</span>
+   
+   <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+ <span class="p">});</span>
+ 
+ <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;solution&#39;</span><span class="p">,</span> <span class="p">{</span>
+     <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Problem 1&#39;</span>
+   <span class="p">,</span> <span class="nx">link</span><span class="o">:</span> <span class="s1">&#39;http://projecteuler.net/problem=1&#39;</span>
+   <span class="p">,</span> <span class="nx">time</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">time</span>
+   <span class="p">,</span> <span class="nx">answer</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">answer</span>
+ <span class="p">});</span>
+<span class="p">};</span></pre></div></td></tr><tr id="section-14"><td class="docs"><div class="pilwrap"><a href="#section-14" class="pilcrow">&#182;</a></div><div class="dox"><div class="summary"><p>GET solution for problem 2</p></div><div class="body"></div></div>
+</td><td class="code"><div class="highlight"><pre><span class="nx">exports</span><span class="p">.</span><span class="nx">problem2</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">timedFunction</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">first</span>  <span class="o">=</span> <span class="mi">0</span>
+      <span class="p">,</span> <span class="nx">second</span> <span class="o">=</span> <span class="mi">1</span>
+      <span class="p">,</span> <span class="nx">count</span>  <span class="o">=</span> <span class="mi">2</span>
+      <span class="p">,</span> <span class="nx">next</span>   <span class="o">=</span> <span class="mi">3</span>
+      <span class="p">,</span> <span class="nx">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    
+    <span class="k">while</span> <span class="p">(</span><span class="nx">next</span> <span class="o">&lt;</span> <span class="mi">4000000</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">next</span> <span class="o">=</span> <span class="nx">first</span> <span class="o">+</span> <span class="nx">second</span><span class="p">;</span>
+      <span class="nx">first</span> <span class="o">=</span> <span class="nx">second</span><span class="p">;</span>
+      <span class="nx">second</span> <span class="o">=</span> <span class="nx">next</span><span class="p">;</span>
+      
+      <span class="k">if</span> <span class="p">((</span><span class="nx">next</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">answer</span> <span class="o">+=</span> <span class="nx">next</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+  <span class="p">});</span>
+  
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;solution&#39;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Problem 2&#39;</span>
+    <span class="p">,</span> <span class="nx">link</span><span class="o">:</span> <span class="s1">&#39;http://projecteuler.net/problem=2&#39;</span>
+    <span class="p">,</span> <span class="nx">time</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">time</span>
+    <span class="p">,</span> <span class="nx">answer</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">answer</span>
+  <span class="p">});</span>
+<span class="p">};</span></pre></div></td></tr><tr id="section-15"><td class="docs"><div class="pilwrap"><a href="#section-15" class="pilcrow">&#182;</a></div><div class="dox"><div class="summary"><p>GET solution for problem 22</p></div><div class="body"></div></div>
+</td><td class="code"><div class="highlight"><pre> <span class="nx">exports</span><span class="p">.</span><span class="nx">problem22</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+   <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">timedFunction</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+     <span class="k">return</span> <span class="nx">calculateScore</span><span class="p">(</span><span class="s1">&#39;/names.txt&#39;</span><span class="p">);</span>
+   <span class="p">});</span>
+   
+   <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;solution&#39;</span><span class="p">,</span> <span class="p">{</span>
+       <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Problem 22&#39;</span>
+     <span class="p">,</span> <span class="nx">link</span><span class="o">:</span> <span class="s1">&#39;http://projecteuler.net/problem=22&#39;</span>
+     <span class="p">,</span> <span class="nx">time</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">time</span>
+     <span class="p">,</span> <span class="nx">answer</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">answer</span>
+   <span class="p">});</span>
+ <span class="p">};</span></pre></div></td></tr><tr id="section-16"><td class="docs"><div class="pilwrap"><a href="#section-16" class="pilcrow">&#182;</a></div><div class="dox"><div class="summary"><p>GET solution for problem 25</p></div><div class="body"></div></div>
+</td><td class="code"><div class="highlight"><pre><span class="nx">exports</span><span class="p">.</span><span class="nx">problem25</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span></pre></div></td></tr><tr id="section-17"><td class="docs"><div class="pilwrap"><a href="#section-17" class="pilcrow">&#182;</a></div><p>Fibonacci magic!</p>
+</td><td class="code"><div class="highlight"><pre>  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">timedFunction</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">PHI</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ceil</span><span class="p">(((</span><span class="nb">Math</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="mi">999</span><span class="p">)</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">PHI</span><span class="p">));</span>
+  <span class="p">});</span>
+
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;solution&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Problem 25&#39;</span>
+  <span class="p">,</span> <span class="nx">link</span><span class="o">:</span> <span class="s1">&#39;http://projecteuler.net/problem=25&#39;</span>
+  <span class="p">,</span> <span class="nx">time</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">time</span>
+  <span class="p">,</span> <span class="nx">answer</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">answer</span>
+  <span class="p">});</span>
+<span class="p">};</span></pre></div></td></tr><tr id="section-18"><td class="docs"><div class="pilwrap"><a href="#section-18" class="pilcrow">&#182;</a></div><div class="dox"><div class="summary"><p>GET solution for problem 102</p></div><div class="body"></div></div>
+</td><td class="code"><div class="highlight"><pre><span class="nx">exports</span><span class="p">.</span><span class="nx">problem102</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">timedFunction</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">answer</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="p">,</span> <span class="nx">tri</span> <span class="o">=</span> <span class="nx">openAndSplit</span><span class="p">(</span><span class="s1">&#39;/triangles.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;\r\n&#39;</span><span class="p">)</span>
+      <span class="p">,</span> <span class="nx">i</span><span class="p">;</span>
+    
+    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">tri</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">line</span> <span class="o">=</span> <span class="nx">tri</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">line</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;=</span> <span class="mi">6</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">x</span><span class="o">:</span> <span class="nx">line</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">y</span><span class="o">:</span> <span class="nx">line</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">}</span>
+          <span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">x</span><span class="o">:</span> <span class="nx">line</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nx">y</span><span class="o">:</span> <span class="nx">line</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">}</span>
+          <span class="p">,</span> <span class="nx">c</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">x</span><span class="o">:</span> <span class="nx">line</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="nx">y</span><span class="o">:</span> <span class="nx">line</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="p">}</span>
+          <span class="p">,</span> <span class="nx">p</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">x</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">0</span> <span class="p">};</span>
+        
+        <span class="kd">var</span> <span class="nx">area</span> <span class="o">=</span> <span class="nx">calculateTriangleArea</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span>
+          <span class="p">,</span> <span class="nx">ap</span>   <span class="o">=</span> <span class="nx">calculateTriangleArea</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">p</span><span class="p">)</span>
+          <span class="p">,</span> <span class="nx">bp</span>   <span class="o">=</span> <span class="nx">calculateTriangleArea</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">p</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span>
+          <span class="p">,</span> <span class="nx">cp</span>   <span class="o">=</span> <span class="nx">calculateTriangleArea</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">area</span> <span class="o">===</span> <span class="nx">ap</span> <span class="o">+</span> <span class="nx">bp</span> <span class="o">+</span> <span class="nx">cp</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">answer</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+  <span class="p">});</span>
+  
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;solution&#39;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Problem 102&#39;</span>
+    <span class="p">,</span> <span class="nx">link</span><span class="o">:</span> <span class="s1">&#39;http://projecteuler.net/problem=102&#39;</span>
+    <span class="p">,</span> <span class="nx">time</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">time</span>
+    <span class="p">,</span> <span class="nx">answer</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">answer</span>
+  <span class="p">});</span>
+<span class="p">};</span></pre></div></td></tr><tr id="section-19"><td class="docs"><div class="pilwrap"><a href="#section-19" class="pilcrow">&#182;</a></div><div class="dox"><div class="summary"><p>GET 404 page</p></div><div class="body"></div></div>
+</td><td class="code"><div class="highlight"><pre><span class="nx">exports</span><span class="p">.</span><span class="nx">notfound</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;404&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Not found :(&#39;</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+
+</pre></div></td></tr></tbody></table><div id="generated">generated Mon Aug 06 2012 18:31:15 GMT-0400 (EDT)  </div><div id="projectname"><a href="../index.html">JavaScript Project Euler</a></div></div></body></html>

@@ -1,13 +1,19 @@
 {
-  "author": "fiveisprime",
-  "name": "euler",
-  "description": "Project Euler solutions",
+  "author": "Matt Hernandez",
+  "name": "JavaScript Project Euler",
+  "description": "Project Euler solutions written in JavaScript.",
   "version": "0.0.1",
   "private": true,
   "homepage": "http://euler.nodester.com",
   "node": "0.8.1",
+  "author": {
+    "name": "Matt Hernandez",
+    "email": "matt@eventargs.com",
+    "url": "http://eventargs.com"
+  },
   "repository": {
-    "url": "defaultapp"
+    "type": "git",
+    "url": "git://github.com/fiveisprime/euler.nodester"
   },
   "main": "app.js",
   "dependencies": {
