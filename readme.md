@@ -3,7 +3,7 @@ This is a collection of solutions to [Project Euler](http://projecteuler.net) pr
 
 ## Contributing
 Feel free to submit pull requests with solutions!
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](https://github.com/cowboy/grunt).
+In lieu of a formal styleguide, take care to maintain the existing coding style and lint your changes using [grunt](https://github.com/cowboy/grunt).
 
 ## Run locally
 Requires Express and Jade
