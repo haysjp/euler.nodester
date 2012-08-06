@@ -24,6 +24,12 @@
   "engines": {
     "node": "*"
   },
+  "licenses": [
+    {
+      "type": "CC",
+      "url": "http://creativecommons.org/licenses/by/3.0/deed.en_US"
+    }
+  ],
   "scripts": {
     "start": "node app"
   }
