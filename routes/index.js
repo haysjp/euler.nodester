@@ -3,153 +3,6 @@
  */
 var fs = require('fs');
 
-/**
- * GET home page.
- */
-exports.index = function(req, res){
-  res.render('index', {
-      title: 'Euler : JavaScript'
-  });
-}
-
-/**
- * GET solution for problem 1
- */
-exports.problem1 = function(req, res) {
- var result = timedFunction(function() {
-   var answer = 0, i;
-   
-   for (i = 0; i < 1000; i++) {
-     if (i % 3 === 0 || i % 5 === 0) {
-       answer += i;
-     }
-   }
-   
-   return answer;
- });
- 
- res.render('solution', {
-     title: 'Problem 1'
-   , link: 'http://projecteuler.net/problem=1'
-   , time: result.time
-   , answer: result.answer
- });
-}
-
-/**
- * GET solution for problem 2
- */
-exports.problem2 = function(req, res) {
-  var result = timedFunction(function() {
-    var first  = 0
-      , second = 1
-      , count  = 2
-      , next   = 3
-      , answer = 0;
-    
-    while (next < 4000000) {
-      next = first + second;
-      first = second;
-      second = next;
-      
-      if ((next % 2) === 0) {
-        answer += next;
-      }
-    }
-    
-    return answer;
-  });
-  
-  res.render('solution', {
-      title: 'Problem 2'
-    , link: 'http://projecteuler.net/problem=2'
-    , time: result.time
-    , answer: result.answer
-  });
-}
-
-/**
- * GET solution for problem 22
- */
- exports.problem22 = function(req, res) {
-   var result = timedFunction(function() {
-     return calculateScore('/names.txt');
-   });
-   
-   res.render('solution', {
-       title: 'Problem 22'
-     , link: 'http://projecteuler.net/problem=22'
-     , time: result.time
-     , answer: result.answer
-   });
- }
-
-/**
- * GET solution for problem 25
- */
-exports.problem25 = function(req, res) {
-  // Fibonacci magic!
-  var result = timedFunction(function() {
-    var PHI = (1 + Math.sqrt(5)) / 2;
-    return Math.ceil(((Math.log(10) * 999) + Math.log(5) / 2) / Math.log(PHI));
-  });
-
-  res.render('solution', {
-    title: 'Problem 25'
-  , link: 'http://projecteuler.net/problem=25'
-  , time: result.time
-  , answer: result.answer
-  });
-}
-
-/**
- * GET solution for problem 102
- */
-exports.problem102 = function(req, res) {
-  var result = timedFunction(function() {
-    var answer = 0
-      , tri = openAndSplit('/triangles.txt', '\r\n')
-      , i;
-    
-    for (i = 0; i < tri.length; i++) {
-      var line = tri[i].split(',');
-      if (line.length >= 6) {
-        var a = { x: line[0], y: line[1] }
-          , b = { x: line[2], y: line[3] }
-          , c = { x: line[4], y: line[5] }
-          , p = { x: 0, y: 0 };
-        
-        var area = calculateTriangleArea(a, b, c)
-          , ap   = calculateTriangleArea(a, b, p)
-          , bp   = calculateTriangleArea(a, p, c)
-          , cp   = calculateTriangleArea(p, b, c);
-
-        if (area == ap + bp + cp) {
-          answer++;
-        }
-      }
-    }
-    
-    return answer;
-  });
-  
-  res.render('solution', {
-      title: 'Problem 102'
-    , link: 'http://projecteuler.net/problem=102'
-    , time: result.time
-    , answer: result.answer
-  });
-}
-
-/**
- * GET 404 page
- */
-exports.notfound = function(req, res) {
-  res.render('404', {
-    title: 'Not found :('
-  });
-}
-
 /* ==========================================================================
  Helper functions
 ========================================================================== */
@@ -169,7 +22,7 @@ function timedFunction (fn) {
   var start = new Date().getTime();
   var answer = fn();
   var end = new Date().getTime();
-  
+
   return { answer: answer, time: end - start };
 }
 
@@ -229,4 +82,157 @@ function calculateScore (fileName) {
 /* ==========================================================================
  Constructors
 ========================================================================== */
+
+
+
+/* ==========================================================================
+ Routing
+========================================================================== */
+
+/**
+ * GET home page.
+ */
+exports.index = function(req, res){
+  res.render('index', {
+      title: 'Euler : JavaScript'
+  });
+};
+
+/**
+ * GET solution for problem 1
+ */
+exports.problem1 = function(req, res) {
+ var result = timedFunction(function() {
+   var answer = 0, i;
+   
+   for (i = 0; i < 1000; i++) {
+     if (i % 3 === 0 || i % 5 === 0) {
+       answer += i;
+     }
+   }
+   
+   return answer;
+ });
+ 
+ res.render('solution', {
+     title: 'Problem 1'
+   , link: 'http://projecteuler.net/problem=1'
+   , time: result.time
+   , answer: result.answer
+ });
+};
+
+/**
+ * GET solution for problem 2
+ */
+exports.problem2 = function(req, res) {
+  var result = timedFunction(function() {
+    var first  = 0
+      , second = 1
+      , count  = 2
+      , next   = 3
+      , answer = 0;
+    
+    while (next < 4000000) {
+      next = first + second;
+      first = second;
+      second = next;
+      
+      if ((next % 2) === 0) {
+        answer += next;
+      }
+    }
+    
+    return answer;
+  });
+  
+  res.render('solution', {
+      title: 'Problem 2'
+    , link: 'http://projecteuler.net/problem=2'
+    , time: result.time
+    , answer: result.answer
+  });
+};
+
+/**
+ * GET solution for problem 22
+ */
+ exports.problem22 = function(req, res) {
+   var result = timedFunction(function() {
+     return calculateScore('/names.txt');
+   });
+   
+   res.render('solution', {
+       title: 'Problem 22'
+     , link: 'http://projecteuler.net/problem=22'
+     , time: result.time
+     , answer: result.answer
+   });
+ };
+
+/**
+ * GET solution for problem 25
+ */
+exports.problem25 = function(req, res) {
+  // Fibonacci magic!
+  var result = timedFunction(function() {
+    var PHI = (1 + Math.sqrt(5)) / 2;
+    return Math.ceil(((Math.log(10) * 999) + Math.log(5) / 2) / Math.log(PHI));
+  });
+
+  res.render('solution', {
+    title: 'Problem 25'
+  , link: 'http://projecteuler.net/problem=25'
+  , time: result.time
+  , answer: result.answer
+  });
+};
+
+/**
+ * GET solution for problem 102
+ */
+exports.problem102 = function(req, res) {
+  var result = timedFunction(function() {
+    var answer = 0
+      , tri = openAndSplit('/triangles.txt', '\r\n')
+      , i;
+    
+    for (i = 0; i < tri.length; i++) {
+      var line = tri[i].split(',');
+      if (line.length >= 6) {
+        var a = { x: line[0], y: line[1] }
+          , b = { x: line[2], y: line[3] }
+          , c = { x: line[4], y: line[5] }
+          , p = { x: 0, y: 0 };
+        
+        var area = calculateTriangleArea(a, b, c)
+          , ap   = calculateTriangleArea(a, b, p)
+          , bp   = calculateTriangleArea(a, p, c)
+          , cp   = calculateTriangleArea(p, b, c);
+
+        if (area === ap + bp + cp) {
+          answer++;
+        }
+      }
+    }
+    
+    return answer;
+  });
+  
+  res.render('solution', {
+      title: 'Problem 102'
+    , link: 'http://projecteuler.net/problem=102'
+    , time: result.time
+    , answer: result.answer
+  });
+};
+
+/**
+ * GET 404 page
+ */
+exports.notfound = function(req, res) {
+  res.render('404', {
+    title: 'Not found :('
+  });
+};
 
