@@ -11,7 +11,7 @@ var fs = require('fs');
  * Runs the specified function and returns a result object that includes the
  *   time it too to run the function.
  * @param {Function} fn The function to time.
- * @returns {Object} An object containing the answer (result of the function)
+ * @return {Object} An object containing the answer (result of the function)
  *   and the time it took to run the function.
  */
 function timedFunction (fn) {
@@ -29,7 +29,7 @@ function timedFunction (fn) {
 /**
  * Opens the specified file and splits the contents based on the
  *  specified pattern.
- * @returns {Array} The split contents of the file.
+ * @return {Array} The split contents of the file.
  */
 function openAndSplit(fileName, pattern) {
   try {
@@ -46,7 +46,7 @@ function openAndSplit(fileName, pattern) {
  * @param {Object} a First line segment.
  * @param {Object} b Second line segment.
  * @param {Object} c Third line segment.
- * @returns {Number} The are of the triangle.
+ * @return {Number} The area of the triangle.
  */
 function calculateTriangleArea(a, b, c) {
   return Math.abs(0.5 * ((a.x - c.x) * (b.y - a.y) - (a.x - b.x) * (c.y - a.y)));
@@ -55,7 +55,7 @@ function calculateTriangleArea(a, b, c) {
 /**
  * Calculate the score for the names in the specified file.
  * @param {String} fileName The file with the names.
- * @returns {Number} The total score of all names in the file.
+ * @return {Number} The total score of all names in the file.
  */
 function calculateScore (fileName) {
   var score = 0
