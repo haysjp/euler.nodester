@@ -8,7 +8,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style 
 ## Run locally
 Requires Express and Jade
 
-    $ git clone git://github.com/Fiveisprime/euler.nodester.git
+    $ git clone git://github.com/fiveisprime/euler.nodester.git
     $ cd euler.nodester
     $ npm install express
     $ npm install jade
