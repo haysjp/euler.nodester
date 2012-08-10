@@ -32,5 +32,9 @@
   ],
   "scripts": {
     "start": "node app"
+  },
+  "docco_husky": {
+    "output_dir": "public/docs",
+    "project_name": "JavaScript Project Euler"
   }
 }
