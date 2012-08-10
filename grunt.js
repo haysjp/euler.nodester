@@ -1,10 +1,19 @@
 /*global module:false*/
 module.exports = function(grunt) {
+  
+  // NPM task registration
+  grunt.loadNpmTasks('grunt-css');
 
   // Project configuration.
   grunt.initConfig({
     lint: {
       files: ['grunt.js', 'app.js', 'routes/index.js']
+    },
+    cssmin: {
+      dist: {
+        src: ['styles/base.css', 'styles/skeleton.css', 'styles/layout.css', 'styles/style.css'],
+        dest: 'public/css/style.min.css'
+      }
     },
     watch: {
       files: '<config:lint.files>',
@@ -33,6 +42,6 @@ module.exports = function(grunt) {
   });
 
   // Default task.
-  grunt.registerTask('default', 'lint');
+  grunt.registerTask('default', 'lint', 'cssmin');
 
 };
