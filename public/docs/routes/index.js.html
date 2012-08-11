@@ -60,10 +60,11 @@
  <span class="p">});</span>
  
  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;solution&#39;</span><span class="p">,</span> <span class="p">{</span>
-     <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Problem 1&#39;</span>
-   <span class="p">,</span> <span class="nx">link</span><span class="o">:</span> <span class="s1">&#39;http://projecteuler.net/problem=1&#39;</span>
-   <span class="p">,</span> <span class="nx">time</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">time</span>
-   <span class="p">,</span> <span class="nx">answer</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">answer</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Problem 1&#39;</span>
+  <span class="p">,</span> <span class="nx">problem</span><span class="o">:</span> <span class="s1">&#39;If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23. Find the sum of all the multiples of 3 or 5 below 1000.&#39;</span>
+  <span class="p">,</span> <span class="nx">link</span><span class="o">:</span> <span class="s1">&#39;http://projecteuler.net/problem=1&#39;</span>
+  <span class="p">,</span> <span class="nx">time</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">time</span>
+  <span class="p">,</span> <span class="nx">answer</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">answer</span>
  <span class="p">});</span>
 <span class="p">};</span></pre></div></td></tr><tr id="section-14"><td class="docs"><div class="pilwrap"><a href="#section-14" class="pilcrow">&#182;</a></div><div class="dox"><div class="summary"><p>GET solution for problem 2</p></div><div class="body"></div></div>
 </td><td class="code"><div class="highlight"><pre><span class="nx">exports</span><span class="p">.</span><span class="nx">problem2</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
@@ -89,6 +90,7 @@
   
   <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;solution&#39;</span><span class="p">,</span> <span class="p">{</span>
       <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Problem 2&#39;</span>
+    <span class="p">,</span> <span class="nx">problem</span><span class="o">:</span> <span class="s1">&#39;By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.&#39;</span>
     <span class="p">,</span> <span class="nx">link</span><span class="o">:</span> <span class="s1">&#39;http://projecteuler.net/problem=2&#39;</span>
     <span class="p">,</span> <span class="nx">time</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">time</span>
     <span class="p">,</span> <span class="nx">answer</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">answer</span>
@@ -100,10 +102,11 @@
    <span class="p">});</span>
    
    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;solution&#39;</span><span class="p">,</span> <span class="p">{</span>
-       <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Problem 22&#39;</span>
-     <span class="p">,</span> <span class="nx">link</span><span class="o">:</span> <span class="s1">&#39;http://projecteuler.net/problem=22&#39;</span>
-     <span class="p">,</span> <span class="nx">time</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">time</span>
-     <span class="p">,</span> <span class="nx">answer</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">answer</span>
+      <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Problem 22&#39;</span>
+    <span class="p">,</span> <span class="nx">problem</span><span class="o">:</span> <span class="s1">&#39;Using a text file containing over five-thousand first names, begin by sorting it into alphabetical order. Then working out the alphabetical value for each name, multiply this value by its alphabetical position in the list to obtain a name score.&#39;</span>
+    <span class="p">,</span> <span class="nx">link</span><span class="o">:</span> <span class="s1">&#39;http://projecteuler.net/problem=22&#39;</span>
+    <span class="p">,</span> <span class="nx">time</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">time</span>
+    <span class="p">,</span> <span class="nx">answer</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">answer</span>
    <span class="p">});</span>
  <span class="p">};</span></pre></div></td></tr><tr id="section-16"><td class="docs"><div class="pilwrap"><a href="#section-16" class="pilcrow">&#182;</a></div><div class="dox"><div class="summary"><p>GET solution for problem 25</p></div><div class="body"></div></div>
 </td><td class="code"><div class="highlight"><pre><span class="nx">exports</span><span class="p">.</span><span class="nx">problem25</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span></pre></div></td></tr><tr id="section-17"><td class="docs"><div class="pilwrap"><a href="#section-17" class="pilcrow">&#182;</a></div><p>Fibonacci magic!</p>
@@ -114,6 +117,7 @@
 
   <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;solution&#39;</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Problem 25&#39;</span>
+  <span class="p">,</span> <span class="nx">problem</span><span class="o">:</span> <span class="s1">&#39;What is the first term in the Fibonacci sequence to contain 1000 digits?&#39;</span>
   <span class="p">,</span> <span class="nx">link</span><span class="o">:</span> <span class="s1">&#39;http://projecteuler.net/problem=25&#39;</span>
   <span class="p">,</span> <span class="nx">time</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">time</span>
   <span class="p">,</span> <span class="nx">answer</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">answer</span>
@@ -149,6 +153,7 @@
   
   <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;solution&#39;</span><span class="p">,</span> <span class="p">{</span>
       <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Problem 102&#39;</span>
+    <span class="p">,</span> <span class="nx">problem</span><span class="o">:</span> <span class="s1">&#39;Using triangles.txt (rsee link for file), a text file containing the co-ordinates of one thousand &quot;random&quot; triangles, find the number of triangles for which the interior contains the origin.&#39;</span>
     <span class="p">,</span> <span class="nx">link</span><span class="o">:</span> <span class="s1">&#39;http://projecteuler.net/problem=102&#39;</span>
     <span class="p">,</span> <span class="nx">time</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">time</span>
     <span class="p">,</span> <span class="nx">answer</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">answer</span>
@@ -160,4 +165,4 @@
   <span class="p">});</span>
 <span class="p">};</span>
 
-</pre></div></td></tr></tbody></table><div id="generated">generated Fri Aug 10 2012 13:37:18 GMT-0400 (EDT)  </div><div id="projectname"><a href="../index.html">JavaScript Project Euler</a></div></div></body></html>
+</pre></div></td></tr></tbody></table><div id="generated">generated Fri Aug 10 2012 21:26:20 GMT-0400 (EDT)  </div><div id="projectname"><a href="../index.html">JavaScript Project Euler</a></div></div></body></html>
