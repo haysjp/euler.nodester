@@ -72,13 +72,6 @@ nav li {
   display: inline;
 }
 
-.logo a {
-  -webkit-transition: all .2s;
-     -moz-transition: all .2s;
-       -o-transition: all .2s;
-          transition: all .2s;
-}
-
 a {
   -webkit-transition: color .2s;
      -moz-transition: color .2s;
