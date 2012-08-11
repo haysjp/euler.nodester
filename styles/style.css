@@ -68,9 +68,16 @@ nav li {
   display: inline;
 }
 
+.logo a {
+  -webkit-transition: all .2s;
+     -moz-transition: all .2s;
+       -o-transition: all .2s;
+          transition: all .2s;
+}
+
 a {
-  transition: all .2s;
-  -moz-transition: all .2s; /* Firefox 4 */
-  -webkit-transition: all .2s; /* Safari and Chrome */
-  -o-transition: all .2s; /* Opera */
+  -webkit-transition: color .2s;
+     -moz-transition: color .2s;
+       -o-transition: color .2s;
+          transition: color .2s;
 }
