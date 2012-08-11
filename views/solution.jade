@@ -3,9 +3,9 @@ extends layout
 block content
   div.fourteen.columns.offset-by-one.content(role='main')
     p.problem= problem
+    p.link
+      small
+        a(href='#{link}', target='_blank') link to problem
     p Answer: #{answer}
     p Total time: #{time}ms
-    p
-      small 
-        a(href='#{link}', target='_blank') link to problem
   include includes/footer
