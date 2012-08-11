@@ -3,11 +3,17 @@
 ========================================================================== */
 
 footer[role=contentinfo] {
-  padding-bottom: 50px;
+  text-align: center;
 }
 
 body {
   background-image: url('../img/bg.png');
+}
+
+.problem {
+  border: 1px solid #CCC;
+  padding: 10px;
+  margin-right: 50px;
 }
 
 .container {
@@ -16,14 +22,52 @@ body {
   box-shadow: 0 0 10px #CCC;
 }
 
-#logo {
+.first {
+  padding-right: 6px;
+  border-right: 1px solid #D3D3D3;
+}
+
+.last {
+  padding-left: 6px;
+  /*border-left: 1px solid #D3D3D3;*/
+}
+
+.logo {
   font-size: 28px;
   line-height: 34px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
   text-transform: uppercase;
 }
 
-#tag {
+.logo a,
+.logo a:hover,
+.logo a:focus {
+  color: #333;
+  text-decoration: none;
+}
+
+.tag {
+  text-align: center;
   font-style: italic;
+}
+
+nav {
+  display: block;
+  text-align: center;
+}
+
+nav a {
+  color: blue;
+}
+
+nav ul {
+  margin-top: -15px;
+}
+
+nav li {
+  display: inline;
 }
 
 a {
