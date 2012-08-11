@@ -28,7 +28,6 @@ body {
 
 .last {
   padding-left: 6px;
-  /*border-left: 1px solid #D3D3D3;*/
 }
 
 .logo {
@@ -70,8 +69,8 @@ nav li {
 }
 
 a {
-  transition: color .2s;
-  -moz-transition: color .2s; /* Firefox 4 */
-  -webkit-transition: color .2s; /* Safari and Chrome */
-  -o-transition: color .2s; /* Opera */
+  transition: all .2s;
+  -moz-transition: all .2s; /* Firefox 4 */
+  -webkit-transition: all .2s; /* Safari and Chrome */
+  -o-transition: all .2s; /* Opera */
 }
