@@ -18,6 +18,10 @@ body {
   background-image: url('../img/bg.png');
 }
 
+.answer {
+  font-weight: bold;
+}
+
 .problem {
   border: 1px solid #CCC;
   padding: 10px;
