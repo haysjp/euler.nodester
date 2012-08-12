@@ -1,6 +1,6 @@
 {
   "author": "Matt Hernandez",
-  "name": "JavaScript Project Euler",
+  "name": "javascript-euler",
   "description": "Project Euler solutions written in JavaScript.",
   "version": "0.0.1",
   "private": true,
@@ -18,7 +18,8 @@
   "main": "app.js",
   "dependencies": {
     "express": "~2.5.9",
-    "jade": "0.27.0"
+    "jade": "0.27.0",
+    "grunt-css": "0.2.1"
   },
   "devDependencies": {},
   "optionalDependencies": {},

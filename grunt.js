@@ -1,6 +1,6 @@
 /*global module:false*/
 module.exports = function(grunt) {
-  
+
   // NPM task registration
   grunt.loadNpmTasks('grunt-css');
 

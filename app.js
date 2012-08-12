@@ -1,3 +1,11 @@
+/*
+ * javascript-euler
+ * https://github.com/fiveisprime/euler.nodester
+ *
+ * Copyright (c) 2012 Matt Hernandez
+ * Licensed under Creative Commons license.
+ */
+
 /**
  * Module dependencies.
  */

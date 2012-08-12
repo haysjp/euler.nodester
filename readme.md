@@ -10,8 +10,7 @@ Requires Express and Jade
 
     $ git clone git://github.com/fiveisprime/euler.nodester.git
     $ cd euler.nodester
-    $ npm install express
-    $ npm install jade
+    $ npm install
     $ node app.js
 
 Once the app is running, navigate to http://localhost:20109 to see the result.
@@ -20,5 +19,5 @@ Once the app is running, navigate to http://localhost:20109 to see the result.
 _(Nothing yet)_
 
 ## License
-Copyright (c) 2012 Matt Hernandez  
+Copyright (c) 2012 Matt Hernandez
 Licensed under Creative Commons license.
