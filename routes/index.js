@@ -124,7 +124,9 @@ exports.problem1 = function(req, res) {
 
   res.render('solution', {
       title: 'JavaScript Project Euler : Problem 1'
-    , problem: 'If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23. Find the sum of all the multiples of 3 or 5 below 1000.'
+    , problem: 'If we list all the natural numbers below 10 that are multiples of '
+      + '3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23. Find the '
+      + 'sum of all the multiples of 3 or 5 below 1000.'
     , link: 'http://projecteuler.net/problem=1'
     , time: result.time
     , answer: result.answer
@@ -157,7 +159,8 @@ exports.problem2 = function(req, res) {
 
   res.render('solution', {
       title: 'JavaScript Project Euler : Problem 2'
-    , problem: 'By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.'
+    , problem: 'By considering the terms in the Fibonacci sequence whose values '
+      + 'do not exceed four million, find the sum of the even-valued terms.'
     , link: 'http://projecteuler.net/problem=2'
     , time: result.time
     , answer: result.answer
@@ -174,7 +177,10 @@ exports.problem22 = function(req, res) {
 
   res.render('solution', {
       title: 'JavaScript Project Euler : Problem 22'
-    , problem: 'Using a text file containing over five-thousand first names, begin by sorting it into alphabetical order. Then working out the alphabetical value for each name, multiply this value by its alphabetical position in the list to obtain a name score.'
+    , problem: 'Using a text file containing over five-thousand first names, '
+      + 'begin by sorting it into alphabetical order. Then working out the '
+      + 'alphabetical value for each name, multiply this value by its '
+      + 'alphabetical position in the list to obtain a name score.'
     , link: 'http://projecteuler.net/problem=22'
     , time: result.time
     , answer: result.answer
@@ -233,7 +239,9 @@ exports.problem102 = function(req, res) {
 
   res.render('solution', {
       title: 'JavaScript Project Euler : Problem 102'
-    , problem: 'Using triangles.txt (rsee link for file), a text file containing the co-ordinates of one thousand "random" triangles, find the number of triangles for which the interior contains the origin.'
+    , problem: 'Using triangles.txt (rsee link for file), a text file containing '
+      + 'the co-ordinates of one thousand "random" triangles, find the number of '
+      + 'triangles for which the interior contains the origin.'
     , link: 'http://projecteuler.net/problem=102'
     , time: result.time
     , answer: result.answer
