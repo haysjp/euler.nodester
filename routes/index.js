@@ -76,7 +76,7 @@ function calculateScore (fileName) {
   nameData.sort().forEach(function(name, index) {
     var thisScore = 0, i;
     for (i = 0; i < name.length; i++) {
-      // The score for the current name.
+      // Use the index of the letter from the alpha var plus one.
       thisScore += alpha.indexOf(name[i].toLowerCase()) + 1;
     }
 
@@ -204,6 +204,42 @@ exports.problem25 = function(req, res) {
     , time: result.time
     , answer: result.answer
   });
+};
+
+/**
+ * GET solution for problem 76
+ */
+exports.problem76 = function(req, res) {
+  var result = timedFunction(function() {
+    var top = 100
+      , totals = [];
+
+      totals[0] = 1;
+      for (var i = 1; i <= top - 1; i++) {
+        for (var j = i; j <= top; j++) {
+          // The first time through, `totals[j]` will be undefined so adding number to it
+          // will result in `NaN`.
+          if (!totals[j]) {
+            // Set the value on the initial pass.
+            totals[j] = totals[j - i];
+          } else {
+            // Add the value to the existing `totals[j]` for subsequent passes.
+            totals[j] += totals[j - i];
+          }
+        };
+      };
+
+      return totals[100];
+  });
+
+  res.render('solution', {
+      title: 'JavaScript Project Euler : Problem 76'
+    , problem: 'How many different ways can one hundred be written as a sum of at least '
+      + 'two positive integers?'
+    , link: 'http://projecteuler.net/problem=76'
+    , time: result.time
+    , answer: result.answer
+  })
 };
 
 /**

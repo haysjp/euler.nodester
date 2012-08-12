@@ -45,6 +45,7 @@ app.get('/1', routes.problem1);
 app.get('/2', routes.problem2);
 app.get('/22', routes.problem22);
 app.get('/25', routes.problem25);
+app.get('/76', routes.problem76);
 app.get('/102', routes.problem102);
 
 // 404 all the things

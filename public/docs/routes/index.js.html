@@ -32,7 +32,7 @@
     <span class="p">,</span> <span class="nx">nameData</span> <span class="o">=</span> <span class="nx">openAndSplit</span><span class="p">(</span><span class="nx">fileName</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">);</span></pre></div></td></tr><tr id="section-8"><td class="docs"><div class="pilwrap"><a href="#section-8" class="pilcrow">&#182;</a></div><p>Sort then calculate the score.</p>
 </td><td class="code"><div class="highlight"><pre>  <span class="nx">nameData</span><span class="p">.</span><span class="nx">sort</span><span class="p">().</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">thisScore</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">i</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">name</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span></pre></div></td></tr><tr id="section-9"><td class="docs"><div class="pilwrap"><a href="#section-9" class="pilcrow">&#182;</a></div><p>The score for the current name.</p>
+    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">name</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span></pre></div></td></tr><tr id="section-9"><td class="docs"><div class="pilwrap"><a href="#section-9" class="pilcrow">&#182;</a></div><p>Use the index of the letter from the alpha var plus one.</p>
 </td><td class="code"><div class="highlight"><pre>      <span class="nx">thisScore</span> <span class="o">+=</span> <span class="nx">alpha</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">name</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
     <span class="p">}</span></pre></div></td></tr><tr id="section-10"><td class="docs"><div class="pilwrap"><a href="#section-10" class="pilcrow">&#182;</a></div><p>Add the index multiplier.</p>
 </td><td class="code"><div class="highlight"><pre>    <span class="nx">score</span> <span class="o">+=</span> <span class="nx">thisScore</span> <span class="o">*</span> <span class="p">(</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
@@ -129,7 +129,36 @@
     <span class="p">,</span> <span class="nx">time</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">time</span>
     <span class="p">,</span> <span class="nx">answer</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">answer</span>
   <span class="p">});</span>
-<span class="p">};</span></pre></div></td></tr><tr id="section-19"><td class="docs"><div class="pilwrap"><a href="#section-19" class="pilcrow">&#182;</a></div><div class="dox"><div class="summary"><p>GET solution for problem 102</p></div><div class="body"></div></div>
+<span class="p">};</span></pre></div></td></tr><tr id="section-19"><td class="docs"><div class="pilwrap"><a href="#section-19" class="pilcrow">&#182;</a></div><div class="dox"><div class="summary"><p>GET solution for problem 76</p></div><div class="body"></div></div>
+</td><td class="code"><div class="highlight"><pre><span class="nx">exports</span><span class="p">.</span><span class="nx">problem76</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">timedFunction</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">top</span> <span class="o">=</span> <span class="mi">100</span>
+      <span class="p">,</span> <span class="nx">totals</span> <span class="o">=</span> <span class="p">[];</span>
+
+      <span class="nx">totals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">top</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;=</span> <span class="nx">top</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span></pre></div></td></tr><tr id="section-20"><td class="docs"><div class="pilwrap"><a href="#section-20" class="pilcrow">&#182;</a></div><p>The first time through, <code>totals[j]</code> will be undefined so adding number to it
+will result in <code>NaN</code>.</p>
+</td><td class="code"><div class="highlight"><pre>          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">totals</span><span class="p">[</span><span class="nx">j</span><span class="p">])</span> <span class="p">{</span></pre></div></td></tr><tr id="section-21"><td class="docs"><div class="pilwrap"><a href="#section-21" class="pilcrow">&#182;</a></div><p>Set the value on the initial pass.</p>
+</td><td class="code"><div class="highlight"><pre>            <span class="nx">totals</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">=</span> <span class="nx">totals</span><span class="p">[</span><span class="nx">j</span> <span class="o">-</span> <span class="nx">i</span><span class="p">];</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span></pre></div></td></tr><tr id="section-22"><td class="docs"><div class="pilwrap"><a href="#section-22" class="pilcrow">&#182;</a></div><p>Add the value to the existing <code>totals[j]</code> for subsequent passes.</p>
+</td><td class="code"><div class="highlight"><pre>            <span class="nx">totals</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">totals</span><span class="p">[</span><span class="nx">j</span> <span class="o">-</span> <span class="nx">i</span><span class="p">];</span>
+          <span class="p">}</span>
+        <span class="p">};</span>
+      <span class="p">};</span>
+
+      <span class="k">return</span> <span class="nx">totals</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+  <span class="p">});</span>
+
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;solution&#39;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;JavaScript Project Euler : Problem 76&#39;</span>
+    <span class="p">,</span> <span class="nx">problem</span><span class="o">:</span> <span class="s1">&#39;How many different ways can one hundred be written as a sum of at least &#39;</span>
+      <span class="o">+</span> <span class="s1">&#39;two positive integers?&#39;</span>
+    <span class="p">,</span> <span class="nx">link</span><span class="o">:</span> <span class="s1">&#39;http://projecteuler.net/problem=76&#39;</span>
+    <span class="p">,</span> <span class="nx">time</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">time</span>
+    <span class="p">,</span> <span class="nx">answer</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">answer</span>
+  <span class="p">})</span>
+<span class="p">};</span></pre></div></td></tr><tr id="section-23"><td class="docs"><div class="pilwrap"><a href="#section-23" class="pilcrow">&#182;</a></div><div class="dox"><div class="summary"><p>GET solution for problem 102</p></div><div class="body"></div></div>
 </td><td class="code"><div class="highlight"><pre><span class="nx">exports</span><span class="p">.</span><span class="nx">problem102</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">timedFunction</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">answer</span> <span class="o">=</span> <span class="mi">0</span>
@@ -167,11 +196,11 @@
     <span class="p">,</span> <span class="nx">time</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">time</span>
     <span class="p">,</span> <span class="nx">answer</span><span class="o">:</span> <span class="nx">result</span><span class="p">.</span><span class="nx">answer</span>
   <span class="p">});</span>
-<span class="p">};</span></pre></div></td></tr><tr id="section-20"><td class="docs"><div class="pilwrap"><a href="#section-20" class="pilcrow">&#182;</a></div><div class="dox"><div class="summary"><p>GET 404 page</p></div><div class="body"></div></div>
+<span class="p">};</span></pre></div></td></tr><tr id="section-24"><td class="docs"><div class="pilwrap"><a href="#section-24" class="pilcrow">&#182;</a></div><div class="dox"><div class="summary"><p>GET 404 page</p></div><div class="body"></div></div>
 </td><td class="code"><div class="highlight"><pre><span class="nx">exports</span><span class="p">.</span><span class="nx">notfound</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;404&#39;</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;JavaScript Project Euler : Not found :(&#39;</span>
   <span class="p">});</span>
 <span class="p">};</span>
 
-</pre></div></td></tr></tbody></table><div id="generated">generated Sun Aug 12 2012 12:58:05 GMT-0400 (EDT)  </div><div id="projectname"><a href="../index.html">JavaScript Project Euler</a></div></div></body></html>
+</pre></div></td></tr></tbody></table><div id="generated">generated Sun Aug 12 2012 18:37:48 GMT-0400 (EDT)  </div><div id="projectname"><a href="../index.html">JavaScript Project Euler</a></div></div></body></html>
