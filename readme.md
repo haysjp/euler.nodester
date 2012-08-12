@@ -17,7 +17,6 @@ included in `package.json`. To regenerate the docs after making a change, run th
     $ docco-husky app.js routes/index.js
 
 ## Run locally
-Requires Express and Jade
 
     $ git clone git://github.com/fiveisprime/euler.nodester.git
     $ cd euler.nodester
