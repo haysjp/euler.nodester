@@ -37,6 +37,7 @@
   },
   "docco_husky": {
     "output_dir": "public/docs",
-    "project_name": "JavaScript Project Euler"
+    "project_name": "JavaScript Project Euler",
+    "show_timestamp": false
   }
 }
